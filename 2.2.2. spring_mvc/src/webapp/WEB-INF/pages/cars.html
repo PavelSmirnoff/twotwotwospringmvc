@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+</head>
+<body>
+
+<select onchange="window.location.href = this.options[this.selectedIndex].value">
+    <option value="http://localhost:8088/cars">Выбрать:</option>
+    <option value="http://localhost:8088/cars?count=1">1 авто</option>
+    <option value="http://localhost:8088/cars?count=2">2 авто</option>
+    <option value="http://localhost:8088/cars?count=3">3 авто</option>
+    <option value="http://localhost:8088/cars?count=4">4 авто</option>
+    <option value="http://localhost:8088/cars?count=5">5 и более</option>
+</select>
+
+<table>
+    <caption>Список автомобилей</caption>
+    <thead>
+    <tr>
+        <th>Модель</th>
+        <th>Цвет</th>
+        <th>Номер</th>
+    </tr>
+    </thead>
+    <th:block th:each="car : ${cars}">
+        <tr>
+            <td th:text="${car.model}"></td>
+            <td th:text="${car.color}"></td>
+            <td th:text="${car.number}"></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
