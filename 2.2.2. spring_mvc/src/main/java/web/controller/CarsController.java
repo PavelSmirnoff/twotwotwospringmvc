@@ -30,7 +30,7 @@ public class CarsController {
         } catch (NumberFormatException ignored) {
         }
 
-        System.out.println("Count = " + count);®
+        System.out.println("Count = " + count);
         model.addAttribute("cars",
                 cars.stream().limit((countCar < 5) ? countCar : cars.size()).collect(Collectors.toList()));
         return "cars";
